@@ -1,26 +1,47 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(process.env.BASE_URL),
   routes: [
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('@/views/NotFountView.vue'),
+    },
     {
       path: '/auth',
       name: 'auth',
-      component: () => import('../layout/AuthLayout.vue')
+      component: () => import('@/layout/LayoutAuth.vue'),
+      children: [
+        {
+          path: '',
+          name: 'auth.signIn',
+          component: () => import('@/views/auth/SignInView.vue'),
+        },
+      ],
     },
     {
       path: '/',
-      name: 'home',
-      component: () => import('../views/app/HomeView.vue')
+      name: 'app',
+      component: () => import('@/layout/LayoutApp.vue'),
+      children: [
+        {
+          path: '',
+          name: 'app.home',
+          component: () => import('@/views/app/HomeView.vue'),
+        },
+        {
+          path: '/about',
+          name: 'app.about',
+          component: () => import('../views/app/AboutView.vue'),
+        },
+        {
+          path: '/search',
+          name: 'app.search',
+          component: () => import('../views/app/SearchView.vue'),
+        },
+      ],
     },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/app/AboutView.vue')
-    }
   ]
 });
 

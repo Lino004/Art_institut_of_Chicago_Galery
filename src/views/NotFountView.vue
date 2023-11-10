@@ -3,6 +3,6 @@
 
 <template>
   <section>
-    Search page
+    NotFound
   </section>
 </template>

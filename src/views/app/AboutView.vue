@@ -1,6 +1,8 @@
+
 <template>
-  <main class="about">
-  </main>
+  <section>
+    About page
+  </section>
 </template>
 
 <style>

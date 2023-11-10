@@ -3,5 +3,7 @@
 </script>
 
 <template>
-  sign-in
+  <section>
+    sign-in
+  </section>
 </template>

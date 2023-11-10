@@ -1,0 +1,7 @@
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+
+$primary: #3598DC;
+
+$colors: (
+  "primary": ($primary, $white),
+);
