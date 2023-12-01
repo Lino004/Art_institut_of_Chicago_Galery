@@ -1,0 +1,12 @@
+.pagination-previous, .pagination-next, .pagination-link {
+  color: $primary;
+  border-color: $primary;
+  border-radius: 10px;
+  font-weight: 600 !important;
+
+  &:hover, &:focus, &.is-current {
+    background-color:$primary;
+    border-color: $primary;
+    color: $white;
+  }
+}

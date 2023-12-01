@@ -6,19 +6,7 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component: () => import('@/views/NotFountView.vue'),
-    },
-    {
-      path: '/auth',
-      name: 'auth',
-      component: () => import('@/layout/LayoutAuth.vue'),
-      children: [
-        {
-          path: '',
-          name: 'auth.signIn',
-          component: () => import('@/views/auth/SignInView.vue'),
-        },
-      ],
+      redirect: { name: 'app.home' },
     },
     {
       path: '/',
@@ -31,14 +19,24 @@ const router = createRouter({
           component: () => import('@/views/app/HomeView.vue'),
         },
         {
-          path: '/about',
+          path: 'about',
           name: 'app.about',
-          component: () => import('../views/app/AboutView.vue'),
+          component: () => import('@/views/app/AboutView.vue'),
         },
         {
-          path: '/search',
+          path: 'search',
           name: 'app.search',
-          component: () => import('../views/app/SearchView.vue'),
+          component: () => import('@/views/app/SearchView.vue'),
+        },
+        {
+          path: 'sign-in',
+          name: 'app.signIn',
+          component: () => import('@/views/app/SignInView.vue'),
+        },
+        {
+          path: 'register',
+          name: 'app.register',
+          component: () => import('@/views/app/RegisterView.vue'),
         },
       ],
     },

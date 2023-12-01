@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AppButton from '@/components/AppButton.vue';
 </script>
 
 <template>
@@ -6,29 +7,28 @@
     <div class="container">
       <div class="navbar-brand">
         <router-link class="navbar-item" to="/">
-          <img src="@/assets/img/Art_Institute_of_Chicago_logo.svg" width="99">
+          <img src="@/assets/img/logo-red.svg" width="99">
         </router-link>
       </div>
 
       <div class="navbar-menu">
-
         <div class="navbar-end">
           <div class="navbar-item">
-            <router-link class="navbar-item" :to="{ name: 'app.home' }">
+            <router-link exact-active-class="is-active" class="navbar-item" :to="{ name: 'app.home' }">
               Accueil
             </router-link>
-            <router-link class="navbar-item" :to="{ name: 'app.search' }">
+            <router-link exact-active-class="is-active" class="navbar-item" :to="{ name: 'app.search' }">
               Recherche
             </router-link>
-            <router-link class="navbar-item" :to="{ name: 'app.about' }">
+            <router-link exact-active-class="is-active" class="navbar-item" :to="{ name: 'app.about' }">
               A propos
             </router-link>
           </div>
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary">
-                <strong>Connexion</strong>
-              </a>
+              <app-button
+                label="Connexion"
+                class="is-primary"/>
             </div>
           </div>
         </div>

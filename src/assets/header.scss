@@ -1,0 +1,28 @@
+.navbar-item img {
+  max-height: max-content;
+}
+
+header.navbar {
+  background-color: $brand-900 !important;
+  border-radius: 0px 0px 30px 30px;
+
+  a.navbar-item {
+    color: $white !important;
+    &:hover, &:focus, &.is-active {
+      font-weight: bold !important;
+      background-color: transparent !important;
+      position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        bottom: 5px;
+        background-color: $white;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+  }
+}
+

@@ -1,6 +1,4 @@
-@import 'bulma/css/bulma.css';
-@import 'base.scss';
-
-.navbar-item img {
-  max-height: max-content;
-}
+@import 'base';
+@import 'header';
+@import 'footer';
+@import 'pagination';
