@@ -24,9 +24,9 @@ const router = createRouter({
           component: () => import('@/views/app/AboutView.vue'),
         },
         {
-          path: 'search',
-          name: 'app.search',
-          component: () => import('@/views/app/SearchView.vue'),
+          path: 'gallery',
+          name: 'app.gallery',
+          component: () => import('@/views/app/GalleryView.vue'),
         },
         {
           path: 'sign-in',

@@ -17,8 +17,8 @@ import AppButton from '@/components/AppButton.vue';
             <router-link exact-active-class="is-active" class="navbar-item" :to="{ name: 'app.home' }">
               Accueil
             </router-link>
-            <router-link exact-active-class="is-active" class="navbar-item" :to="{ name: 'app.search' }">
-              Recherche
+            <router-link exact-active-class="is-active" class="navbar-item" :to="{ name: 'app.gallery' }">
+              Galerie
             </router-link>
             <router-link exact-active-class="is-active" class="navbar-item" :to="{ name: 'app.about' }">
               A propos
