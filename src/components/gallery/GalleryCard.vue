@@ -3,7 +3,6 @@ import { onMounted, ref } from 'vue';
 import { IArtworkBase } from '@/interfaces/Artwork';
 import { getUrlImgById } from '@/utils/img';
 
-
 interface Props {
   artwork: IArtworkBase,
 }
@@ -12,16 +11,17 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {});
 
 //ref
-const refFigureImg = ref();
+const refFigureImg = ref<HTMLBaseElement | undefined>();
+const root = ref();
 
 //method
 const isLoad = (e: any) => {
-  refFigureImg.value.classList.add('loaded');
+  refFigureImg.value?.classList.add('loaded');
 };
 
 onMounted(() => {
   if (props.artwork.image_id) {
-    refFigureImg.value.style.setProperty(
+    refFigureImg.value?.style.setProperty(
       '--src-img',
       `url(${props.artwork.thumbnail.lqip})`,
     );
@@ -31,7 +31,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="gallery-card is-relative">
+  <div class="gallery-card is-relative" ref="root">
     <figure class="absolute-center"
         ref="refFigureImg">
       <img

@@ -1,23 +1,24 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, inject } from 'vue';
 import AppPagination from '@/components/AppPagination.vue';
 import GalleryCard from '@/components/gallery/GalleryCard.vue';
 import { searchArtworks } from '@/api/artworks';
 import { IArtworkGetAllPayload, IArtworkBase } from '@/interfaces/Artwork';
 import AppButton from '@/components/AppButton.vue';
+import { ICreateAppLoadingFunc } from '@/interfaces/Loading';
 
 const perPage = 15;
+const $loading = inject('$loading') as ICreateAppLoadingFunc;
 
 //refs
 const currentPage = ref(1);
 const total = ref(1);
 const search = ref('');
 const artworks = ref<IArtworkBase[]>([]);
-const loading = ref(false);
 
 //methods
 const getdata = async () => {
-  loading.value = true;
+  const loading = $loading().show();
   const payload: IArtworkGetAllPayload = {
     q: search.value,
     limit: perPage,
@@ -31,7 +32,7 @@ const getdata = async () => {
   } catch (error) {
     //
   } finally {
-    loading.value = false;
+    loading?.destroy();
   }
 };
 
@@ -61,7 +62,6 @@ onMounted(async () => {
               class="is-primary"/>
           </div>
         </div>
-        <div v-if="loading"> Chargement ... </div>
       </div>
       <div class="level-right">
         <div class="level-item">
