@@ -29,6 +29,11 @@ const router = createRouter({
           component: () => import('@/views/app/GalleryView.vue'),
         },
         {
+          path: 'artwork/:id',
+          name: 'app.artwork',
+          component: () => import('@/views/app/GalleryDetailView.vue'),
+        },
+        {
           path: 'sign-in',
           name: 'app.signIn',
           component: () => import('@/views/app/SignInView.vue'),

@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref, inject } from 'vue';
-import AppPagination from '@/components/AppPagination.vue';
 import GalleryCard from '@/components/gallery/GalleryCard.vue';
 import { searchArtworks } from '@/api/artworks';
 import { IArtworkGetAllPayload, IArtworkBase } from '@/interfaces/Artwork';
-import AppButton from '@/components/AppButton.vue';
 import { ICreateAppLoadingFunc } from '@/interfaces/Loading';
 
 const perPage = 15;

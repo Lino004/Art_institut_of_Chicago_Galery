@@ -5,6 +5,9 @@ export interface IArtworkGetAllPayload {
   limit: number,
   query?: any,
 }
+export interface IArtworkGetOnePayload {
+  fields?: string,
+}
 export interface IArtworkBase {
   id: number,
   title: string | null,
@@ -14,5 +17,14 @@ export interface IArtworkBase {
     lqip: string,
   }
 }
+export interface IArtwork extends IArtworkBase {
+  description: string | null,
+  exhibition_history: string | null,
+  dimensions: string | null,
+  term_titles: string[],
+}
 export interface IArtworkResponce extends IArtworkBase {
+}
+export interface IArtworkGetOneResponse {
+  data: IArtwork,
 }
